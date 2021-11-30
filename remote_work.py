@@ -1,4 +1,5 @@
 import urllib.request as urllib2
+import pandas as pd
 from bs4 import BeautifulSoup, SoupStrainer
 
 url = "https://remoteok.com"
@@ -9,10 +10,43 @@ website = opener.open(url)
 html = website.read()
 # print(html)
 soup = BeautifulSoup(html, "html.parser")
-
-for h in soup.find_all('h2'):
+position = []
+enterprise = []
+sallarie = []
+publish = []
+# position = []
+for h in soup.find_all('h2', {"itemprop": "title"}):
     # print(h.get('h3').text)
-    print(str.strip(h.text))
+    position.append(str.strip(h.text))
+    # print(str.strip(h.text))
+
+for h in soup.find_all('h3', {"itemprop": "name"}):
+    # print(h.get('h3').text)
+    enterprise.append(str.strip(h.text))
+    # print(str.strip(h.text))
+
+for h in soup.find_all("div", {"class": "location"}):
+    sallarie.append(str.strip(h.text))
+    # print(str.strip(h.text))
+
+for i in soup.findAll('time'):
+        if i.has_attr('datetime'):
+            publish.append(i['datetime'])
+            print(i['datetime'])
+
+# print(sallarie)
+sallary = [element for element in sallarie if element.startswith('💰 ')]
+location = [element for element in sallarie if not element.startswith('💰 ')]
+
+df = pd.DataFrame(list(zip(position, enterprise,sallary,location,publish)),
+               columns =['Posicion', 'Empresa','Salario','Ubicacion','Fecha de publicacion'])
+# print(df.head(5))
+print(df)
+df['Sitio'] = 'https://remoteok.com'
+
+print(df)
+df.to_csv('example.csv', encoding='utf-8-sig',index=False)
+
 
 
 # for element in soup.find_all('h3'):
