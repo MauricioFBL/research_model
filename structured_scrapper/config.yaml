@@ -1,0 +1,12 @@
+newoffers:
+  remoteok:
+    url: https://remoteok.com
+    queries:
+      homepage_article_links: ''
+      position_name: 'h2[itemprop=title]'
+      enterprise_name: 'h3[itemprop=name]'
+      location_salary: 'div[class=location tooltip-set]'
+      position_name: 'h2[itemprop=title]'
+      publish_date: 'time'
+      offer_url: 'a[rel=noindex nofollow]'
+    

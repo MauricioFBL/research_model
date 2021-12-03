@@ -2,7 +2,6 @@ import urllib.request as urllib2
 import pandas as pd
 import datetime as dt
 from bs4 import BeautifulSoup
-from bs4 import SoupStrainer
 
 class remoteok_scrapper():
     url = "https://remoteok.com"
@@ -40,12 +39,12 @@ class remoteok_scrapper():
     sallary = [element for element in sallarie if element.startswith('💰 ')]
     location = [element for element in sallarie if not element.startswith('💰 ')]
 
-    df = pd.DataFrame(list(zip(position, enterprise,sallary,location,publish)),
-                columns =['Posicion', 'Empresa','Salario','Ubicacion','Fecha de publicacion'])
+    df = pd.DataFrame(list(zip(position, enterprise,sallary,location,publish,position_url)),
+                columns =['Posicion', 'Empresa','Salario','Ubicacion','Fecha de publicacion', 'URL de la vacante'])
     # print(df.head(5))
 
-    df['url Sitio'] = 'https://remoteok.com'
-    df['Sitio'] = 'REMOTEOK'
+    df['URL PRINCIPAL'] = 'https://remoteok.com'
+    df['Nombre del Sitio'] = 'REMOTEOK'
 
     print(df)
     df.to_csv(F'REMOTEOK_{today}_OFFERS.csv', encoding='utf-8-sig',index=False)
