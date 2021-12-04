@@ -5,8 +5,11 @@ newoffers:
       homepage_article_links: ''
       position_name: 'h2[itemprop=title]'
       enterprise_name: 'h3[itemprop=name]'
-      location_salary: 'div[class=location tooltip-set]'
+      salary: 'div.location'
+      location: 'div.location.tooltip'
       position_name: 'h2[itemprop=title]'
       publish_date: 'time'
       offer_url: 'a[rel=noindex nofollow]'
+      description: 'div.description'
+      location_salary: 'div[class=location tooltip-set]'
     
