@@ -9,7 +9,7 @@ newoffers:
       location: 'div.location.tooltip'
       position_name: 'h2[itemprop=title]'
       publish_date: 'time'
-      offer_url: 'a[rel=noindex nofollow]'
+      offer_url: 'a[rel="noindex nofollow"]'
       description: 'div.description'
       location_salary: 'div.location'
       location_salary_: 'div[class=location tooltip-set]'

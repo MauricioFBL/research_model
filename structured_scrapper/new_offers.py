@@ -30,7 +30,14 @@ class NewOffer:
         location = [str.strip(p.text) for p in soup.select(queries['location_salary']) if not (str.strip(p.text)).startswith('💰 ')]
         sallary = [str.strip(p.text) for p in soup.select(queries['location_salary']) if (str.strip(p.text)).startswith('💰 ')]
         publish = [i['datetime'] for i in soup.select(queries['publish_date']) if i.has_attr('datetime')]
+        
         position_url = [("https://remoteok.com/"+a['href']) for a in soup.find_all("a",{"rel": "noindex nofollow"})]
+        position_url_2 = [("https://remoteok.com/"+a['href']) for a in soup.select(queries['offer_url'])]
+        
+        print("________________"*5)
+        print(position_url_2,len(position_url_2))
+        print("________________"*5)
+        print(position_url,len(position_url))
 
         for h in soup.find_all("div",{'class':'description'}):
             a =''
@@ -38,9 +45,6 @@ class NewOffer:
             for x in h.find_all('div',{'class':'markdown'}):
                 a = a + x.text
                 # print(a)
-
-
-
 
         df = pd.DataFrame(list(zip(position, enterprise,sallary,location,publish,position_url)),
             columns =['Posicion', 'Empresa','Salario','Ubicacion','Fecha de publicacion', 'URL de la vacante'])
