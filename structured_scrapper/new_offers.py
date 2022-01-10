@@ -44,7 +44,7 @@ class NewOffer:
         df['Nombre del Sitio'] = 'REMOTEOK'
         print(df)
         today = dt.date.today()
-        df.to_csv(f'REMOTEOK_{today}_offers.csv',encoding='utf-8-sig', index=False)
+        df.to_csv(f'./raw_data/REMOTEOK_{today}_offers.csv',encoding='utf-8-sig', index=False)
 
 
 
