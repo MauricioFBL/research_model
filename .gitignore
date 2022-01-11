@@ -1,6 +1,6 @@
-/venv
+/venv/
 # *.csv
 *.png
-/assets
+/assets/
 awake.py
 /load/env.yaml
