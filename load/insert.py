@@ -140,7 +140,7 @@ def get_data():
 
 if __name__ == '__main__':
     # data = read_file(sys.argv[1])
-    data = read_file('./clean_data_/REMOTEOK_2022-01-03_offers_CLEAN.csv')
+    data = read_file('./clean_data_/REMOTEOK_2022-01-10_offers_CLEAN.csv')
     insert_position(data["Position"])
     insert_company(data['Company'])
     insert_data(data)

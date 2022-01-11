@@ -42,10 +42,10 @@ class Clean():
 
             df['Descripción'] = a
             today = dt.date.today()
-            df['Company'] = df['Company'].str.upper()
-            df['Position'] = df['Position'].str.upper()
             df.columns = ['Position','Company','Location','Date_published','URL','Description','Home_URL','Site_Name','MIN_SALARY','MAX_SALARY','MIDPOINT_SALARY','CURRENCY','SALLARY_PERIOD']
             df['Date_published'] = df['Date_published'].str.replace('T',' ')
+            df['Company'] = df['Company'].str.upper()
+            df['Position'] = df['Position'].str.upper()
             df.to_csv(f'./clean_data_/REMOTEOK_{today}_offers_CLEAN.csv',
                       encoding='utf-8-sig', index=False)
         else:
