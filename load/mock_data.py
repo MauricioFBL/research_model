@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 
 def connection():
     try:
-        conn_string = 'postgresql://vmcjrdti:s7-HvO5SzWdZV0d3_FBpo3djT_GJASQX@castor.db.elephantsql.com/vmcjrdti'
+        conn_string = ''
         db = create_engine(conn_string)
         conn = db.connect()
         conn = psycopg2.connect(conn_string)
