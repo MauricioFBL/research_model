@@ -30,7 +30,12 @@ class NewOffer:
         
         return descriptions
 
+    def get_skills(self,):
+        skills = []
+        # for url in urls
+
     def _get_data(self, soup, queries):
+        skills = [str.strip(p.text) for p in soup.select(queries['skills'])]
         position = [str.strip(p.text) for p in soup.select(queries['position_name'])]
         enterprise = [str.strip(p.text) for p in soup.select(queries['enterprise_name'])]
         location = [str.strip(p.text) for p in soup.select(queries['location_salary']) if not (str.strip(p.text)).startswith('💰 ')]
@@ -38,6 +43,7 @@ class NewOffer:
         publish = [i['datetime'] for i in soup.select(queries['publish_date']) if i.has_attr('datetime')]
         position_url = ['https://remoteok.com'+h['href'] for h in soup.select(queries['offer_url'])]
         description = self.get_description(position_url)
+        
         df = pd.DataFrame(list(zip(position, enterprise,sallary,location,publish,position_url,description)),
             columns =['Posicion', 'Empresa','Salario','Ubicacion','Fecha de publicacion', 'URL de la vacante', 'Descripción'])
         df['Home URL'] = 'https://remoteok.com'

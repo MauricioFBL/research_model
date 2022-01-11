@@ -10,3 +10,4 @@ newoffers:
       description: 'div.description'
       location_salary: 'div.location'
       description: 'div.description'
+      skills: 'td.tags'
