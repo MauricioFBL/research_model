@@ -3,3 +3,4 @@
 *.png
 /assets
 awake.py
+/load/env.yaml

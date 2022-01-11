@@ -95,7 +95,6 @@ def insert_position(data):
 
 
 def insert_company(data):
-    
     print('INSERT INTO company(name,ceo) VALUES')
     data = data.drop_duplicates()
     for x in range(len(data)):
@@ -119,6 +118,6 @@ if __name__ == '__main__':
     # data = read_file(sys.argv[1])
     data = read_file('./clean_data_/REMOTEOK_2022-01-10_offers_CLEAN.csv')
     # insert_position(data["Position"])
-    insert_company(data['Company'])
+    insert_company(data['Location'])
     
 
