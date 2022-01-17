@@ -48,7 +48,9 @@ class NewOffer:
             columns =['Posicion', 'Empresa','Salario','Ubicacion','Fecha de publicacion', 'URL de la vacante', 'Descripción'])
         df['Home URL'] = 'https://remoteok.com'
         df['Nombre del Sitio'] = 'REMOTEOK'
-        print(df)
+        # print(df)
+
+        print(skills)
         today = dt.date.today()
         df.to_csv(f'./raw_data/REMOTEOK_{today}_offers.csv',encoding='utf-8-sig', index=False)
 
